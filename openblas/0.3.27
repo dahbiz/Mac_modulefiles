@@ -1,0 +1,37 @@
+-- OpenBLAS Module
+
+-- Set the version and installation prefix
+local version = "0.3.27"
+local home = os.getenv("HOME")
+local prefix = pathJoin(home, "Softwares/tools/openblas-" .. version)
+
+
+-- Provide a description
+whatis("OpenBLAS library")
+
+-- Provide help text description
+help([[
+OpenBLAS is an optimized BLAS (Basic Linear Algebra Subprograms) library based on GotoBLAS2.
+
+This module sets up the environment for using OpenBLAS by loading the
+necessary dependencies and setting the appropriate environment variables.
+
+Version: 0.3.27
+Category: Libraries/Math
+Website: https://www.openblas.net/
+
+Usage:
+  To load the module, use the command:
+    module load openblas/0.3.27
+
+  To unload the module, use the command:
+    module unload openblas/0.3.27
+]])
+
+-- Add relevant paths to the environment
+prepend_path("LD_LIBRARY_PATH", prefix .. "/lib")
+prepend_path("DYLD_LIBRARY_PATH", prefix .. "/lib")  -- For macOS
+prepend_path("C_INCLUDE_PATH", pathJoin(prefix, "inlcude")
+prepend_path("CPLUS_INCLUDE_PATH", pathJoin(prefix, "inlcude")
+
+--
